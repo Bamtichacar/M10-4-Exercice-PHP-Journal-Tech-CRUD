@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulaire</title>
-</head>
-<body>
-</body>
-</html>
+<?php
+include 'connexion.php';
+
+$id = $_GET['id'];
+$stmt = $conn->prepare("DELETE FROM articles WHERE id = ?");
+$stmt->execute([$id]);
+
+header('Location: index.php');
+?>
